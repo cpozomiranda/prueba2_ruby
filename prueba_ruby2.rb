@@ -26,9 +26,9 @@ T.method1
 #Se tiene el siguiente código, se pide convertir la clase en un módulo. FALTA
 
 module Prueba
- @@A = 5
+ A = 5
  def self.A
- @@A
+ A
  end
 
 end
@@ -39,13 +39,14 @@ end
 #Pero tiene un problema menor, arreglarlo.
 
 class Complejo
+	attr_accessor :x, :y
  def initialize(x, y)
  @x = x
  @y = y
  end
 
  def +(complejo)
- Complejo.new(@x + Complejo.x, @y + Complejo.y)
+ Complejo.new(@x + complejo.x, @y + complejo.y)
  end
 end
 
@@ -59,21 +60,20 @@ end
 
 
 class T
-	attr_accessor :numero_azar
-	def method1
- 		@@numero_azar = rand(10)
+	def self.method1
+ 		rand
  		
 	end
 end
 
 class Q < T
-	def random_num
+	def initialize
 	super
-	@@numero_q = numero_azar
+	@numero = method1
 	end
 end
 
-Q.new.method1
+print T.new.method1
 
 
 #6
@@ -88,7 +88,6 @@ module Stockable
 		@stock = stock
 		@verify = false 
 		if stock > 0
-
 			verify = true
 		end
 	end
