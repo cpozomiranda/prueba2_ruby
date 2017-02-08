@@ -84,11 +84,10 @@ print T.new.method1
 
 
 module Stockable
+	attr_accessor :stock
 	def has_stock?
-		@stock = stock
-		@verify = false 
-		if stock > 0
-			verify = true
+		@stock = stock? true:false
+		if stock > 0 
 		end
 	end
 
